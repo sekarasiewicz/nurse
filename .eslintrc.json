@@ -18,18 +18,23 @@
               }
             ]
           }
-        ]
+        ],
+        "semi": ["error", "never"]
       }
     },
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "rules": {
+        "semi": ["error", "never"]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
-      "rules": {}
+      "rules": {
+        "semi": ["error", "never"]
+      }
     }
   ]
 }
