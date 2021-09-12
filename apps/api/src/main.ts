@@ -1,5 +1,6 @@
 import * as express from 'express'
 import { Message } from '@nurse/api-interfaces'
+import "reflect-metadata"
 
 const app = express()
 
