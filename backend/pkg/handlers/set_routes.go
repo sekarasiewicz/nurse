@@ -35,4 +35,6 @@ func SetRoutes(router *gin.Engine) {
 	router.NoRoute(NoMethodHandler)
 
 	router.GET("/", HomeHandler)
+	router.GET("/api/users", GetUsersHandler)
+	router.POST("/api/users", PostUserHandler)
 }
