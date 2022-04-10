@@ -1,10 +1,7 @@
 package main
 
 import (
-	"fmt"
-	"log"
-	"net/http"
-
+	"github.com/gin-gonic/gin"
 	"github.com/sekarasiewicz/nurse/backend/pkg/db"
 	"github.com/sekarasiewicz/nurse/backend/pkg/handlers"
 )
@@ -12,10 +9,9 @@ import (
 func main() {
 	db.InitDatabase()
 
-	for _, route := range handlers.GetRoutes() {
-		http.HandleFunc(route.Path, route.Handler)
-	}
+	router := gin.Default()
 
-	fmt.Println("Listining on port: 8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	handlers.SetRoutes(router)
+
+	router.Run(":8080")
 }

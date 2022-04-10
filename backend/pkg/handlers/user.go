@@ -1,14 +1,13 @@
 package handlers
 
 import (
+	"encoding/json"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"github.com/sekarasiewicz/nurse/backend/pkg/models"
 )
 
-func HomeHandler(c *gin.Context) {
+func GetUserHandler(w http.ResponseWriter, r *http.Request) {
 	data := &models.User{ID: 1, Name: "test 2"}
-
-	c.JSON(http.StatusOK, data)
+	json.NewEncoder(w).Encode(data)
 }

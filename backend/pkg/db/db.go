@@ -3,9 +3,12 @@ package db
 import (
 	"github.com/sekarasiewicz/nurse/backend/pkg/config"
 	"github.com/sekarasiewicz/nurse/backend/pkg/models"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
+
+var DB *gorm.DB
 
 func GetDatabase() *gorm.DB {
 
@@ -21,9 +24,7 @@ func Migrate(db *gorm.DB) {
 	db.AutoMigrate(models.User{})
 }
 
-func InitDatabase() *gorm.DB {
-	db := GetDatabase()
-	Migrate(db)
-
-	return db
+func InitDatabase() {
+	DB = GetDatabase()
+	Migrate(DB)
 }
