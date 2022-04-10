@@ -8,6 +8,6 @@ import (
 )
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	data := &models.User{Id: 1, Name: "test 2"}
+	data := &models.User{ID: 1, Name: "test 2"}
 	json.NewEncoder(w).Encode(data)
 }

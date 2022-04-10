@@ -5,10 +5,13 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/sekarasiewicz/nurse/backend/pkg/db"
 	"github.com/sekarasiewicz/nurse/backend/pkg/handlers"
 )
 
 func main() {
+	db.InitDatabase()
+
 	for _, route := range handlers.GetRoutes() {
 		http.HandleFunc(route.Path, route.Handler)
 	}

@@ -12,10 +12,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-type test_struct struct {
-	Test string
-}
-
 func TestHomeHandler(t *testing.T) {
 	t.Run("can get home", func(t *testing.T) {
 		req, err := http.NewRequest("GET", "/", nil)
@@ -52,7 +48,7 @@ func TestHomeHandler(t *testing.T) {
 			t.Error("error parsing body")
 		}
 
-		expectedUser := &models.User{Id: 1, Name: "test 2"}
+		expectedUser := &models.User{ID: 1, Name: "test 2"}
 
 		if reflect.DeepEqual(expectedUser, user) {
 			t.Errorf("handler returned unexpected body: got %v want %v",
